@@ -1,8 +1,9 @@
 import java.awt.geom.Ellipse2D;
-import java.awt.Graphic2D;
-import java.awt.geom.line2D;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
+import java.awt.Color;
 
 
 public class Car{
@@ -23,9 +24,9 @@ public class Car{
 
   }
 
-  public void draw(Graphic2D g2){
+  public void draw(Graphics2D g2){
     Rectangle carbody = new Rectangle(0, 10, this.lengthofcar, 10);
-    g2.setColor(Color.this.color);
+    g2.setColor(Color.getColor(color));
     g2.fill(carbody);
     Ellipse2D.Double frontTire = new Ellipse2D.Double((this.lengthofcar-20), 20, this.frontTireSize, this.frontTireSize);
     g2.setColor(Color.BLACK);
@@ -37,7 +38,7 @@ public class Car{
     //Bottom of front windowshield
     Point2D.Double r1 = new Point2D.Double((this.lengthofcar-10), 10);
     //front of the roof
-    Point2D.Double r2 = new Point2D.Double(this.lengthofcar-20), 0);
+    Point2D.Double r2 = new Point2D.Double((this.lengthofcar-20), 0);
     //rear of teh roof
     Point2D.Double r3 = new Point2D.Double(10,10);
     //Bottom of the rear windowshield
@@ -47,7 +48,7 @@ public class Car{
     Line2D.Double rooftop = new Line2D.Double(r2, r3);
     Line2D.Double rearWindoshield = new Line2D.Double(r3, r4);
 
-    g2.setColor(Color.this.color);
+    g2.setColor(Color.getColor(color));
     g2.draw(frontWindoshield);
     g2.draw(rooftop);
     g2.draw(rearWindoshield);
